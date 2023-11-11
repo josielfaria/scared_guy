@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvfuta8px6yup"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/Spawns.gd" id="1_hcpck"]
+
+[node name="Spawns" type="Node2D"]
+z_index = 1
+script = ExtResource("1_hcpck")
+
+[node name="Spawns_Up" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Spawn1" type="Marker2D" parent="Spawns_Up"]
+position = Vector2(512, 0)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns_Up"]
+position = Vector2(1024, 0)
+
+[node name="Spawn3" type="Marker2D" parent="Spawns_Up"]
+position = Vector2(1536, 0)
+
+[node name="Spawn4" type="Marker2D" parent="Spawns_Up"]
+position = Vector2(2048, 0)
+
+[node name="Spawns_Down" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns_Down"]
+position = Vector2(512, 1536)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns_Down"]
+position = Vector2(1024, 1536)
+
+[node name="Spawn3" type="Marker2D" parent="Spawns_Down"]
+position = Vector2(1536, 1536)
+
+[node name="Spawn4" type="Marker2D" parent="Spawns_Down"]
+position = Vector2(2048, 1536)
+
+[node name="Spawns_Left" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns_Left"]
+position = Vector2(192, 576)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns_Left"]
+position = Vector2(192, 960)
+
+[node name="Spawns_Right" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns_Right"]
+position = Vector2(2304, 576)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns_Right"]
+position = Vector2(2304, 960)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

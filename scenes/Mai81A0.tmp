@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6psi2iqjmjdw"]
+
+[ext_resource type="PackedScene" uid="uid://1vp5edqmomq4" path="res://scenes/characters/player/Player.tscn" id="2_3eaou"]
+[ext_resource type="PackedScene" uid="uid://ctu0f3tq2gx1q" path="res://scenes/prefabs/WallTileMap.tscn" id="2_lo20u"]
+[ext_resource type="Script" path="res://scripts/prefabs/Spawns.gd" id="4_b7i7r"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_3eaou")]
+z_index = 11
+position = Vector2(1856, 896)
+
+[node name="WallTileMap" parent="." instance=ExtResource("2_lo20u")]
+
+[node name="Spawns" type="Node" parent="."]
+script = ExtResource("4_b7i7r")
+
+[node name="Spawns_Up" type="Node" parent="Spawns"]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns/Spawns_Up"]
+position = Vector2(384, 192)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns/Spawns_Up"]
+position = Vector2(896, 192)
+
+[node name="Spawn3" type="Marker2D" parent="Spawns/Spawns_Up"]
+position = Vector2(1664, 192)
+
+[node name="Spawn4" type="Marker2D" parent="Spawns/Spawns_Up"]
+position = Vector2(2176, 192)
+
+[node name="Spawns_Down" type="Node" parent="Spawns"]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns/Spawns_Down"]
+position = Vector2(384, 1344)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns/Spawns_Down"]
+position = Vector2(896, 1344)
+
+[node name="Spawn3" type="Marker2D" parent="Spawns/Spawns_Down"]
+position = Vector2(1664, 1344)
+
+[node name="Spawn4" type="Marker2D" parent="Spawns/Spawns_Down"]
+position = Vector2(2176, 1344)
+
+[node name="Spawns_Left" type="Node" parent="Spawns"]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns/Spawns_Left"]
+position = Vector2(192, 640)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns/Spawns_Left"]
+position = Vector2(192, 896)
+
+[node name="Spawns_Right" type="Node" parent="Spawns"]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns/Spawns_Right"]
+position = Vector2(2368, 640)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns/Spawns_Right"]
+position = Vector2(2368, 896)
+
+[node name="SpawnTimer" type="Timer" parent="Spawns"]
+
+[connection signal="timeout" from="Spawns/SpawnTimer" to="Spawns" method="_on_spawn_timer_timeout"]
